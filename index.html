@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner Planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+  </head>
+  <body>
+	<div class="container">
+		<div id="header">
+			<h1>HOMELETTE</h1>
+			<h5>From the best chefs in the world directly into your kitchen</h5>
+		</div>
+		<div class="rightSide" id="exampleView">
+			<div>
+				<p>My dinner</p>
+				People: <span><input type="number" value="3" id="numberOfGuests"/></span>
+			</div>
+<!-- 			<div>
+            <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+			</div> -->
+			<div>
+				<p id="titleDish">Dish name, Cost</p>
+				<div id="leftColumn">
+					<ul id="menuList">
+					<li id="pending">Pending</li>
+					</ul>
+				</div>
+				<div id="rightColumn">
+					<p>0.00</p>
+					<p>SEK</p><p id="costDinner">0.00</p>
+				</div>
+			</div>
+			<button id="#confirmButton" class="btn">Confirm Dinner</button>
+		</div>
+		<div class="middleSpace">
+			<div id="dishDiv">
+				<p>Select dish:</p> 
+				<span><input type="text" id="selsectedDish">
+				<button class="btn" id="searchButton">Search</button></span>
+ 			<select id="#dishDrop">
+				<option>Starters</option>
+				<option>Main</option>
+				<option>Dessert</option>
+			</select> 
+			</div>
+			<div id="picBox">
+				<img src="images/bakedbrie.jpg" height="100" width="100" id="Lasagne" class="foodPics">
+				<div class="caption">Lasagne</div>
+				<img src="images/icecream.jpg" height="100" width="100" id="Icecream" class="foodPics">
+				<div class="caption">Icecream</div>
+				<img src="images/meatballs.jpg" height="100" width="100" id="Meatballs" class="foodPics">
+				<div class="caption">Meatballs</div>
+				<img src="images/sourdough.jpg" height="100" width="100" id="Sourdough" class="foodPics">
+				<div class="caption">Sourdough</div>
+				<img src="images/toast.jpg" height="100" width="100" id="Toast" class="foodPics">
+				<div class="caption">Toast</div>
+			</div>
+		</div>
+	</div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/exampleViewController.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+  </body>
+</html>
