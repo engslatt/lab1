@@ -1,76 +1,135 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
+	
+	var selectedMenu = [];
+	var guest = 0;
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 
+	//num = value of minus and plus button
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
+		guest += num
+		if (guest < 0){
+			guest = 0;
+		}
 		
-		$("#minusGuest").click(function(){
-			var oldValue = $("#numberOfGuests").val();
-			var newValue = parseFloat(oldValue) - 1;
-			$("#numberOfGuests").val(newValue);
-		});
+		// minusButton.click(function(){
+			// num = -1;
+			// guest += num
+				// if (guest < 0){
+				// guest = 0;
+			// }
+		// });
 		
-		$("#plusGuest").click(function(){
-			var oldValue = $("#numberOfGuests").val();
-			var newValue = parseFloat(oldValue) + 1;
-			$("#numberOfGuests").val(newValue);		
-		});
+		// plusButton.click(function(){
+			// num = 1;
+			// guest += num
+				// if (guest < 0){
+				// guest = 0;
+			// }
+		// });
+		
+		// $("#minusGuest").click(function(){
+			// num -1 
+			// var oldValue = $("#numberOfGuests").val();
+			// var newValue = parseFloat(oldValue) - 1;
+			// $("#numberOfGuests").val(newValue);
+		// });
+		
+		// $("#plusGuest").click(function(){
+			// var oldValue = $("#numberOfGuests").val();
+			// var newValue = parseFloat(oldValue) + 1;
+			// $("#numberOfGuests").val(newValue);		
+		// });
 	}
 	
 	this.getNumberOfGuests = function() {
 		//TODO Lab 2
-		var elName = document.getElementById('#numberOfGuests')
-		var num_Guests = elName.value;
-		console.log(num_Guests)
-		//return numGuest;
+		//var elName = document.getElementById('#numberOfGuests')
+		//var num_Guests = elName.value;
+		//console.log(num_Guests)
+		return guest;
 	}
 
-	//Returns the dish that is on the menu for selected type (not sure if this is correct, what is the menu? The sidebar?)
+	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
-		$(".foodPics").click(function () {
-			var picId = this.id
-			console.log(picId)
-			var ul = document.getElementById("menuList");
-			var li = document.createElement("li");
-			li.appendChild(document.createTextNode(picId));
-			ul.appendChild(li);
-			li.setAttribute("id", picId);
-		});
-		//TODO Lab 2
-	}	
+	  for(dish in dishes){
+			if(dishes[dish].type == type) {
+				return dishes[dish];
+			}
+		}
+	}
+	    //TODO Lab 2
 
-	//Returns all the dishes on the menu. (not sure if this is correct, what is the menu? The sidebar?)
+	
+	//Returns all the dishes on the menu. 
 	this.getFullMenu = function() {
-		//var menu = document.getElementById("#menuList")
-		var menuTexts = [];
-		$("ul li").each(function() { 
-		menuTexts.push($(this).text()) 
-		console.log(menuTexts)
-		});
+		for (i in selectedMenu){
+			return selectedMenu[i].name;
+		}
+		//$("ul li").each(function() { 
+		//selectedMenu.push($(this).text()) 
+		//console.log(selectedMenu)
+		
 		//TODO Lab 2
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 2
+		for(key in selectedMenu){
+			return selectedMenu[key].ingredients;
+			}
 	}
+		
+		//TODO Lab 2
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 2
+		var allIngredients = this.getAllIngredients();
+		var totalPrice;
+		
+		for (key in allIngredients){
+			for (i in allIngredients[key]){
+				var eachPrice = allIngredients[key][i].price;
+				totaltPrice += eachPrice;
+			}
+		}
+		
+		var grandPrice = totalPrice * this.getNumberOfGuests();
+		return grandPrice;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
+		//$(".foodPics").click(function () {
+			foodPictures.click(function () {
+			var picId = this.id;
+				for(key in dishes){
+					if(dishes[key].name == picId) {
+					selectedMenu.push(dishes[key]);
+			}
+		}
+			//var ul = document.getElementById("menuList");
+			var ul = foodMenu;
+			var li = document.createElement("li");
+			li.appendChild(document.createTextNode(picId));
+			ul.appendChild(li);
+			li.setAttribute("id", picId);
+		});
 		//TODO Lab 2 
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
+		for (i in selectedMenu){
+			if (selectedMenu[i].id == id)
+				selectedMenu.splice(i,1);
+		}
+		
 		//TODO Lab 2
 	}
 
