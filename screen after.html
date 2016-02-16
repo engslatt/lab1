@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner Planner</title>
+    <title>Screen after</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -21,10 +21,10 @@
 				<h4>My dinner</h4>
 				<p>People: <span id="numberOfGuests"/></span></p>
 			</div>
- 			<div>
-            <button id="minusGuest" class="btn" value="-1"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn" value="1"><span class="glyphicon glyphicon-plus"></span></button>
-			</div> 
+			<div>
+            <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+			</div>
 			<div>
 				<div id="costDiv">
 					<p>Dish name</p>
@@ -42,20 +42,19 @@
 					</ul>
 				</div>
 			</div>
-			<button id="#confirmButton" class="btn">Confirm Dinner</button>
+			<button id="confirmButton" class="btn">Confirm Dinner</button>
 		</div>
 		<div class="col-md-10">
 			<div id="dishDiv">
-				<h4>Select dish:</h4> 
-				<hr class="blackLine">
-				<span><input type="text" placeholder="Enter key words" id="selsectedDish">
+				<p>Select dish:</p> 
+				<span><input type="text" id="selsectedDish">
 				<button class="btn" id="searchButton">Search</button></span>
  			<select id="#dishDrop">
 				<option>Starters</option>
 				<option>Main</option>
 				<option>Dessert</option>
 			</select> 
-			</div>			
+			</div>
 			<div class="row" id="picBox">
 				<div class="col-md-2">
 					<div class="thumbnail">

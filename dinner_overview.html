@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <title>Dinner overview</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -17,15 +17,24 @@
 			<h5>From the best chefs in the world directly into your kitchen</h5>
 		</div>
 	</div>
-	<div id="mainHome">
-		<div class="col-md-6" id="createDinnerDiv">
-			<h2>A Home Dinner Service</h2>
-			<hr class="blackLine">
-			<p>Lorem ipsum dolor.....</p>
-			<p>start quickly</p>
-			<button class="btn" id="createDinner">Create new dinner</button>
+	<div class="row">
+		<div id="overview" class="col-md-12">
+			<div class="col-md-6">
+				My Dinner: <span>3 people</span>
+			</div>
+			<div class="col-md-6">
+			<button id="backButton" class="btn">Go back and edit dinner</button>
+			</div>
 		</div>
 	</div>
+		<div class="col-md-12">
+			<div class="col-md-2"><img src="images/meatballs.jpg" height="42" width="42" id="lasagne"></div>
+			<div class="col-md-2"><img src="images/icecream.jpg" height="42" width="42" id="brie"></div>
+			<div class="col-md-2"><img src="images/bakedbrie.jpg" height="42" width="42" id="toast"></div>
+		</div>
+		<div class="col-md-12"><button class="btn" id="printButton">Print Full Recipe</button></div>
+
+		
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>

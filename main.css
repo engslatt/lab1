@@ -1,7 +1,6 @@
 div#header{
 	background-color: lightgrey;
 	border: 1px solid black;
-	padding: auto; 
 	text-align: center;
 }
 
@@ -15,7 +14,7 @@ div#dishDiv{
 	padding: 10px;
 }
 
-.middleSpace{
+/* .middleSpace{
 	position: absolute;
 	width: 70%; 
 	height: 500px;
@@ -23,7 +22,7 @@ div#dishDiv{
 	right: 0px;
     border: 2 px;
 	top: 100px; 
-}
+} */
 
 div#overview {
 	background-color: lightyellow;

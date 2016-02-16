@@ -6,14 +6,12 @@ var ExampleView = function (container) {
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
-	// this.createNewDinner = container.find("#createDinner");
-	// this.confirmDinner = container.find("#confirmButton");
-	// this.dinnerCost = container.find("#costDinner");
-	// this.searchArea = container.find("#selectedDish");
-	// this.searchButton = container.find("#searchbutton");
-
-	model.setNumberOfGuests(0);
-	this.numberOfGuests.html(model.getNumberOfGuests());
+	this.foodPictures = container.find(".foodPics");
+	this.foodMenu = container.find("#menuList");
+	
+	
+	dinnerModel.setNumberOfGuests(1);
+	this.numberOfGuests.html(dinnerModel.getNumberOfGuests());
 	
 	//this.numberOfGuests.html("Hello world");
 }
