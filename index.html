@@ -4,110 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner Planner</title>
+    <title>Home</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
   </head>
-  <body>
+  <body class="home">
 	<div class="container row no-gutter">
-		<div id="header" class="col-md-12 secondHeader">
+		<div id="header"  class="firstHeader" class="col-md-12">
 			<h1>HOMELETTE</h1>
 			<h5>From the best chefs in the world directly into your kitchen</h5>
 		</div>
-		<div class="col-md-2" id="exampleView">
-			<div>
-				<h4>My dinner</h4>
-				<p>People: <span id="numberOfGuests"/></span></p>
-			</div>
- 			<div>
-            <button id="minusGuest" class="btn" value="-1"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn" value="1"><span class="glyphicon glyphicon-plus"></span></button>
-			</div> 
-			<div>
-				<div id="menuList">
-					<table>
-						<tr>
-							<th>Dish name</th>
-							<th>Cost</th>
-						</tr>
-						<tr class="costColor" id="pending">
-							<td>Pending</td>
-							<td>SEK</td>
-							<td>0.00</td>
-						</tr>
-					</table>
-					<hr class="blackLine">
-					<table>
-						<tr id="totalCost" class="costColor">
-							<td>SEK</td>
-							<td>0.00</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<button id="#confirmButton" class="btn">Confirm Dinner</button>
-		</div>
-		<div class="col-md-10">
-			<div id="dishDiv">
-				<h4>Select dish:</h4> 
-				<hr class="blackLine">
-				<span><input type="text" placeholder="Enter key words" id="selsectedDish">
-				<button class="btn" id="searchButton">Search</button></span>
- 			<select id="#dishDrop">
-				<option>Starters</option>
-				<option>Main</option>
-				<option>Dessert</option>
-			</select> 
-			</div>			
-			<div class="row" id="picBox">
-				<div class="col-md-2">
-					<div class="thumbnail">
-						<img src="images/bakedbrie.jpg" id="Bakedbrie" class="foodPics" style="width:128px;height:128px;">
-						<div class="caption">
-							<p><a href="#" class="btn btn-primary" role="button">Baked brie</a></p>
-							<p>Finally, code sharing, especially using git and GitHub is a common practice in the industry and valuable skill to develop early on.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="thumbnail">
-						<img src="images/toast.jpg" id="Toast" class="foodPics" style="width:128px;height:128px;">
-						<div class="caption">
-							<p><a href="#" class="btn btn-primary" role="button">Toast</a></p>
-							<p>Finally, code sharing, especially using git and GitHub is a common practice in the industry and valuable skill to develop early on.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="thumbnail">
-						<img src="images/icecream.jpg" id="Icecream" class="foodPics" style="width:128px;height:128px;">
-						<div class="caption">
-							<p><a href="#" class="btn btn-primary" role="button">Icecream</a></p>
-							<p>Finally, code sharing, especially using git and GitHub is a common practice in the industry and valuable skill to develop early on.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="thumbnail">
-						<img src="images/sourdough.jpg" id="Sourdough" class="foodPics" style="width:128px;height:128px;">
-						<div class="caption">
-							<p><a href="#" class="btn btn-primary" role="button">Sourdough</a></p>
-							<p>Finally, code sharing, especially using git and GitHub is a common practice in the industry and valuable skill to develop early on.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="thumbnail">
-						<img src="images/meatballs.jpg" id="Meatballs" class="foodPics" style="width:128px;height:128px;">
-						<div class="caption">
-							<p><a href="#" class="btn btn-primary" role="button">Meatballs</a></p>
-							<p>Finally, code sharing, especially using git and GitHub is a common practice in the industry and valuable skill to develop early on.</p>
-						</div>
-					</div>
-				</div>
-			</div>
+	</div>
+	<div id="mainHome">
+		<div class="col-md-6" id="createDinnerDiv">
+			<h2>A Home Dinner Service</h2>
+			<hr class="blackLine">
+			<p>Lorem ipsum dolor.....</p>
+			<p>start quickly</p>
+			<button class="btn" id="createDinner">Create new dinner</button>
 		</div>
 	</div>
 
@@ -121,6 +37,6 @@
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
 	<script src="js/view/exampleViewController.js"></script>
- 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   </body>
 </html>
