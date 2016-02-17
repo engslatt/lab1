@@ -3,8 +3,10 @@ $(function() {
 	var model = new DinnerModel();
 	
 	//And create the needed controllers and views
-	var exampleView = new ExampleView($("#exampleView"), model)
+	var exampleView = new ExampleView($("#exampleView"), model);
 	//var exampleController = 
 	//window.onload = model.getSelectedDish;
+
+	var picBox = new PicBox($("#picBox"), model);
 
 });

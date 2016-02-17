@@ -33,3 +33,33 @@ var ExampleView = function (container, model) {
 	this.numberOfGuests.html(model.getNumberOfGuests());
 	this.foodName.html(model.addDishToMenu(1));
 }
+
+
+var PicBox = function(container, model){
+		this.foodDetail = container.find('#foodDetail');
+		//this.picBox = container.find('#picBox');
+
+		var foodList = model.getAllDishes('starter');
+		var foodDetailTxt ="";
+
+		//for (key in foodList){
+		for (var i=0 ;  i < foodList.length ; i++ ){
+
+			console.log(foodList[i].name);
+			//foodDetailTxt += foodList[i].name + foodList[i].image + foodList[i].description;
+			//console.log(foodDetailTxt);
+
+			foodDetailTxt +="<div class=\"col-md-3\">"+
+								"<div class=\"thumbnail\">"+
+									"<img src=\"images/"+foodList[i].image+"\" id=\""+foodList[i].name +"\" class=\"foodPics\" style=\"width:128px;height:128px;\">"+
+									"<div class=\"caption\">"+
+									"<p><a href=\"#\" class=\"btn btn-primary\" role=\"button\">"+foodList[i].name+"</a></p>"+
+									"<p>"+foodList[i].description+"</p>"+
+							"</div></div></div>"
+
+		}
+		//console.log(foodList);
+		this.foodDetail.html(foodDetailTxt);
+		//this.picBox.html(foodDetailTxt);
+
+	}

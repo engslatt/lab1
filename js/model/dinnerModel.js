@@ -108,11 +108,11 @@ var DinnerModel = function() {
 			}	
 		}
 			//var ul = document.getElementById("menuList");
-			var ul = foodMenu;
+		/*	var ul = foodMenu;
 			var li = document.createElement("li");
 			li.appendChild(document.createTextNode(picId));
 			ul.appendChild(li);
-			li.setAttribute("id", picId);
+			li.setAttribute("id", picId);*/
 		//TODO Lab 2 
 	}
 
