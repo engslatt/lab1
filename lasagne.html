@@ -12,7 +12,7 @@
   </head>
   <body>
 	<div class="container row">
-		<div id="header" class="col-md-12">
+		<div id="header" class="secondHeader col-md-12">
 			<h1>HOMELETTE</h1>
 			<h5>From the best chefs in the world directly into your kitchen</h5>
 		</div>
@@ -22,24 +22,29 @@
 				<p>People: <span id="numberOfGuests"/></span></p>
 			</div>
 			<div>
-            <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+				<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
 				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
 			</div>
 			<div>
-				<div id="costDiv">
-					<p>Dish name</p>
-					<p>Cost</p>
-				</div>
-				<div id="costColor">
-					<ul id="menuList">
-						<li id="pending">Pending</li>
-						<p>0.00</p>
-					</ul>
+				<div id="menuList">
+					<table>
+						<tr>
+							<th>Dish name </th>
+							<th>Cost</th>
+						</tr>
+						<tr class="costColor" id="pending">
+							<td>Pending</td>
+							<td>SEK</td>
+							<td>0.00</td>
+						</tr>
+					</table>
 					<hr class="blackLine">
-					<ul class="list-inline">
-						<li>SEK</li>
-						<li>0.00</li>
-					</ul>
+					<table>
+						<tr id="totalCost" class="costColor">
+							<td>SEK</td>
+							<td>0.00</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 			<button id="confirmButton" class="btn">Confirm Dinner</button>
@@ -49,6 +54,7 @@
 			<img src="images/ice.jpg" id="Icecream" class="foodPics" style="width:400px;height:300px;">
 			<div id="foodText">Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor.....</div>
 			<button class="btn" id="backButton">back to Select Dish</button>
+			<h2>Preparation</h2>
 		</div>
 		<div id="ingredients" class="col-md-5">
 			<h4>Ingridients for 4 people</h4>
@@ -78,9 +84,6 @@
 			<hr class="blackLine">
 			<p>SEK 50.00</p>
 			<button class="btn" id="confirmDish">Confirm Dish</button>
-		</div>
-		<div class="col-md-10">
-			<h2>Preparation</h2>
 		</div>
 	</div>
 

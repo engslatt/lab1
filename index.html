@@ -11,8 +11,8 @@
 
   </head>
   <body>
-	<div class="container row">
-		<div id="header" class="col-md-12">
+	<div class="container row no-gutter">
+		<div id="header" class="col-md-12 secondHeader">
 			<h1>HOMELETTE</h1>
 			<h5>From the best chefs in the world directly into your kitchen</h5>
 		</div>
@@ -26,20 +26,25 @@
 				<button id="plusGuest" class="btn" value="1"><span class="glyphicon glyphicon-plus"></span></button>
 			</div> 
 			<div>
-				<div id="costDiv">
-					<p>Dish name</p>
-					<p>Cost</p>
-				</div>
-				<div id="costColor">
-					<ul id="menuList">
-						<li id="pending">Pending</li>
-						<p>0.00</p>
-					</ul>
+				<div id="menuList">
+					<table>
+						<tr>
+							<th>Dish name</th>
+							<th>Cost</th>
+						</tr>
+						<tr class="costColor" id="pending">
+							<td>Pending</td>
+							<td>SEK</td>
+							<td>0.00</td>
+						</tr>
+					</table>
 					<hr class="blackLine">
-					<ul class="list-inline">
-						<li>SEK</li>
-						<li>0.00</li>
-					</ul>
+					<table>
+						<tr id="totalCost" class="costColor">
+							<td>SEK</td>
+							<td>0.00</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 			<button id="#confirmButton" class="btn">Confirm Dinner</button>
@@ -62,16 +67,16 @@
 						<img src="images/bakedbrie.jpg" id="Bakedbrie" class="foodPics" style="width:128px;height:128px;">
 						<div class="caption">
 							<p><a href="#" class="btn btn-primary" role="button">Baked brie</a></p>
-							<p>Blablablablablablablablablablablablablablablablablablablablablablablablabla...</p>
+							<p>Finally, code sharing, especially using git and GitHub is a common practice in the industry and valuable skill to develop early on.</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-2">
 					<div class="thumbnail">
-						<img src="images/lasagne.jpg" id="Lasagne" class="foodPics" style="width:128px;height:128px;">
+						<img src="images/toast.jpg" id="Toast" class="foodPics" style="width:128px;height:128px;">
 						<div class="caption">
-							<p><a href="#" class="btn btn-primary" role="button">Lasagne</a></p>
-							<p>Blablablablablablablablablablablablablablablablablablablablablablablablabla...</p>
+							<p><a href="#" class="btn btn-primary" role="button">Toast</a></p>
+							<p>Finally, code sharing, especially using git and GitHub is a common practice in the industry and valuable skill to develop early on.</p>
 						</div>
 					</div>
 				</div>
@@ -80,7 +85,7 @@
 						<img src="images/icecream.jpg" id="Icecream" class="foodPics" style="width:128px;height:128px;">
 						<div class="caption">
 							<p><a href="#" class="btn btn-primary" role="button">Icecream</a></p>
-							<p>Blablablablablablablablablablablablablablablablablablablablablablablablabla...</p>
+							<p>Finally, code sharing, especially using git and GitHub is a common practice in the industry and valuable skill to develop early on.</p>
 						</div>
 					</div>
 				</div>
@@ -89,7 +94,7 @@
 						<img src="images/sourdough.jpg" id="Sourdough" class="foodPics" style="width:128px;height:128px;">
 						<div class="caption">
 							<p><a href="#" class="btn btn-primary" role="button">Sourdough</a></p>
-							<p>Blablablablablablablablablablablablablablablablablablablablablablablablabla...</p>
+							<p>Finally, code sharing, especially using git and GitHub is a common practice in the industry and valuable skill to develop early on.</p>
 						</div>
 					</div>
 				</div>
@@ -98,7 +103,7 @@
 						<img src="images/meatballs.jpg" id="Meatballs" class="foodPics" style="width:128px;height:128px;">
 						<div class="caption">
 							<p><a href="#" class="btn btn-primary" role="button">Meatballs</a></p>
-							<p>Blablablablablablablablablablablablablablablablablablablablablablablablabla...</p>
+							<p>Finally, code sharing, especially using git and GitHub is a common practice in the industry and valuable skill to develop early on.</p>
 						</div>
 					</div>
 				</div>

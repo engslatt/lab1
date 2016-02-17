@@ -11,28 +11,51 @@
 
   </head>
   <body>
-	<div class="container row">
-		<div id="header" class="col-md-12">
+	<div class="container row no-gutter">
+		<div id="header" class="secondHeader" class="col-md-12">
 			<h1>HOMELETTE</h1>
 			<h5>From the best chefs in the world directly into your kitchen</h5>
 		</div>
 	</div>
-	<div class="row">
-		<div id="overview" class="col-md-12">
+	<div class="container row no-gutter">
+		<div class="col-md-12" id="dinnerOverview">
 			<div class="col-md-6">
-				My Dinner: <span>3 people</span>
+				<h3> My Dinner: <span>3 people</span></h3>
 			</div>
 			<div class="col-md-6">
-			<button id="backButton" class="btn">Go back and edit dinner</button>
+				<button id="backButton" class="btn">Go back and edit dinner</button>
 			</div>
 		</div>
 	</div>
-		<div class="col-md-12">
-			<div class="col-md-2"><img src="images/meatballs.jpg" height="42" width="42" id="lasagne"></div>
-			<div class="col-md-2"><img src="images/icecream.jpg" height="42" width="42" id="brie"></div>
-			<div class="col-md-2"><img src="images/bakedbrie.jpg" height="42" width="42" id="toast"></div>
+	<div class="row">
+		<div id="overviewPics">
+			<div class="col-md-3">
+				<img src="images/toast.jpg" id="Toast" class="foodPics" style="width:128px;height:128px;">
+				<div class="caption"></div>
+				<p><a href="#" class="btn btn-primary" role="button">Baked brie</a></p>
+				<p>100.00 SEK</p>
+			</div>
+			<div class="col-md-3">
+				<img src="images/icecream.jpg" id="Icecream" class="foodPics" style="width:128px;height:128px;">
+				<div class="caption"></div>
+				<p><a href="#" class="btn btn-primary" role="button">Baked brie</a></p>
+				<p>100.00 SEK</p>
+			</div>
+			<div class="col-md-3">
+				<img src="images/bakedbrie.jpg" id="Bakedbrie" class="foodPics" style="width:128px;height:128px;">
+				<div class="caption"></div>
+				<p><a href="#" class="btn btn-primary" role="button">Baked brie</a></p>
+				<p>100.00 SEK</p>
+			</div>
+			<div class="col-md-3">
+				<p>Total price: 300.00 SEK</p>
+			</div>
+			<hr class="blackLine">
+			<div class="row">
+				<div class="col-md-4"><button class="btn" id="printButton">Print Full Recipe</button></div>
+			</div>
 		</div>
-		<div class="col-md-12"><button class="btn" id="printButton">Print Full Recipe</button></div>
+	</div>
 
 		
 
