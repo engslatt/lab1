@@ -5,6 +5,6 @@ $(function() {
 	//And create the needed controllers and views
 	var exampleView = new ExampleView($("#exampleView"), model)
 	//var exampleController = 
-	window.onload = model.getSelectedDish;
+	//window.onload = model.getSelectedDish;
 
 });

@@ -23,7 +23,7 @@ var DinnerModel = function() {
 			// }
 		// });
 		
-		// plusButton.click(function(){
+		//plusButton.click(function(){
 			// num = 1;
 			// guest += num
 				// if (guest < 0){
@@ -47,9 +47,6 @@ var DinnerModel = function() {
 	
 	this.getNumberOfGuests = function() {
 		//TODO Lab 2
-		//var elName = document.getElementById('#numberOfGuests')
-		//var num_Guests = elName.value;
-		//console.log(num_Guests)
 		return guest;
 	}
 
@@ -105,13 +102,10 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//$(".foodPics").click(function () {
-			foodPictures.click(function () {
-			var picId = this.id;
-				for(key in dishes){
-					if(dishes[key].name == picId) {
-					selectedMenu.push(dishes[key]);
-			}
+		for(key in dishes){
+			if(dishes[key].id == id) {
+				return dishes[key].name;
+			}	
 		}
 			//var ul = document.getElementById("menuList");
 			var ul = foodMenu;
@@ -119,7 +113,6 @@ var DinnerModel = function() {
 			li.appendChild(document.createTextNode(picId));
 			ul.appendChild(li);
 			li.setAttribute("id", picId);
-		});
 		//TODO Lab 2 
 	}
 

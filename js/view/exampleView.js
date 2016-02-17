@@ -1,5 +1,5 @@
 //ExampleView Object constructor
-var ExampleView = function (container) {
+var ExampleView = function (container, model) {
 	
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
@@ -16,6 +16,8 @@ var ExampleView = function (container) {
 	this.thumb1 = container.find("#thumb1");
 	this.thumb2 = container.find("#thumb2");
 	this.thumb3 = container.find("#thumb3");
+	this.thumb4 = container.find("#thumb2");
+	this.thumb5 = container.find("#thumb3");
 	this.pickedFood = container.find("#lasagneDiv");
 	this.ingridients = container.find("#ingredients");
 	this.confirmDish = container.find ("#confirmDish");
@@ -25,11 +27,9 @@ var ExampleView = function (container) {
 	this.overviewPics = container.find("#overviewPics");
 	this.printButton = container.find("#printButton");
 	this.preparationView = container.find("#preparationView");
+	this.foodName = container.find("#foodName");
 
 
-	
-	dinnerModel.setNumberOfGuests(1);
-	this.numberOfGuests.html(dinnerModel.getNumberOfGuests());
-	
-	//this.numberOfGuests.html("Hello world");
+	this.numberOfGuests.html(model.getNumberOfGuests());
+	this.foodName.html(model.addDishToMenu(1));
 }
