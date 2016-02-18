@@ -2,7 +2,7 @@
 var DinnerModel = function() {
 	
 	var selectedMenu = [];
-	var guest = 0;
+	var guest = 3;
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
@@ -10,39 +10,8 @@ var DinnerModel = function() {
 	//num = value of minus and plus button
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
-		guest += num
-		if (guest < 0){
-			guest = 0;
-		}
-		
-		// minusButton.click(function(){
-			// num = -1;
-			// guest += num
-				// if (guest < 0){
-				// guest = 0;
-			// }
-		// });
-		
-		//plusButton.click(function(){
-			// num = 1;
-			// guest += num
-				// if (guest < 0){
-				// guest = 0;
-			// }
-		// });
-		
-		// $("#minusGuest").click(function(){
-			// num -1 
-			// var oldValue = $("#numberOfGuests").val();
-			// var newValue = parseFloat(oldValue) - 1;
-			// $("#numberOfGuests").val(newValue);
-		// });
-		
-		// $("#plusGuest").click(function(){
-			// var oldValue = $("#numberOfGuests").val();
-			// var newValue = parseFloat(oldValue) + 1;
-			// $("#numberOfGuests").val(newValue);		
-		// });
+		guest += num;
+		return guest;
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -52,75 +21,82 @@ var DinnerModel = function() {
 
 	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
-	  for(dish in dishes){
-			if(dishes[dish].type == type) {
-				return dishes[dish];
+	  for(var i = 0; i < dishes.length ; i++){
+			if(dishes[i].type == type) {
+				selectedMenu.push(dishes[i]);
+				return dishes[i];
 			}
 		}
 	}
 	    //TODO Lab 2
 
 	
-	//Returns all the dishes on the menu. 
+	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		for (i in selectedMenu){
+		for (var i = 0; i < selectedMenu.length ; i++){
 			return selectedMenu[i].name;
 		}
-		//$("ul li").each(function() { 
-		//selectedMenu.push($(this).text()) 
-		//console.log(selectedMenu)
-		
 		//TODO Lab 2
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		for(key in selectedMenu){
-			return selectedMenu[key].ingredients;
-			}
+		for (var i = 0; i < selectedMenu.length ; i++){
+			return selectedMenu[i].ingredients;
+		}
 	}
 		
 		//TODO Lab 2
+
+	this.getFoodPrice = function(id){
+
+		var allIngredients = this.getAllIngredients();
+		var totalPrice = 0;
+
+		for (var i = 0 ; i < allIngredients.length; i++){
+			var a = allIngredients[i].price;
+			totalPrice += a;
+	}
+		return totalPrice;
+}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 2
 		var allIngredients = this.getAllIngredients();
-		var totalPrice;
+		var totalPrice = 0;
 		
-		for (key in allIngredients){
-			for (i in allIngredients[key]){
-				var eachPrice = allIngredients[key][i].price;
-				totaltPrice += eachPrice;
-			}
+		for (var i = 0; i < allIngredients.length ; i++){
+			var a = allIngredients[i].price;
+			totalPrice += a;
 		}
 		
 		var grandPrice = totalPrice * this.getNumberOfGuests();
 		return grandPrice;
+
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key].name;
-			}	
+		for (var i=0 ;  i < dishes.length ; i++ ){
+			if(dishes[i].id == id)
+
+			//dishes[i].id != selectedMenu[i].id){} CHECK IF THE DISH ALREADY EXIST IN ARRAY!
+				selectedMenu.push(dishes[i]);
+				return selectedMenu[i];
 		}
-			//var ul = document.getElementById("menuList");
-		/*	var ul = foodMenu;
-			var li = document.createElement("li");
-			li.appendChild(document.createTextNode(picId));
-			ul.appendChild(li);
-			li.setAttribute("id", picId);*/
-		//TODO Lab 2 
+		//TODO Lab 2
 	}
 
-	//Removes dish from menu
+	//Removes dish from menu - NOT SURE IT IS WORKING CORRECT!
 	this.removeDishFromMenu = function(id) {
-		for (i in selectedMenu){
-			if (selectedMenu[i].id == id)
-				selectedMenu.splice(i,1);
+		for (var i=0 ; i < selectedMenu.length ; i++){
+			if (selectedMenu[i].id == id){
+				selectedMenu.splice(i, 1);
+			}else{
+				return false;
+			}
 		}
 		
 		//TODO Lab 2
@@ -128,7 +104,7 @@ var DinnerModel = function() {
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
-	//if you don't pass any filter all the dishes will be returned
+	//if you don't pass any filter all the dishes will be returned - WORKING!
 	this.getAllDishes = function (type,filter) {
 	  return $(dishes).filter(function(index,dish) {
 		var found = true;
@@ -148,11 +124,13 @@ var DinnerModel = function() {
 	  });	
 	}
 
-	//function that returns a dish of specific ID
+	//function that returns a dish of specific ID - WORKING!!
 	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
+	  for(var i=0 ; i < dishes.length ; i++){
+			if(dishes[i].id == id) {
+				return dishes[i];
+				//console.log(dishes[i]);
+				
 			}
 		}
 	}
