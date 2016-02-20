@@ -42,20 +42,22 @@
 			</div>
 			<button id="confirmButton" class="btn">Confirm Dinner</button>
 		</div>
-		<div id="lasagneDiv" class="col-md-5">
-			<h2 id="foodTitle">LASAGNE</h2>
-			<img src="images/ice.jpg" id="Icecream" class="img-responsive foodPics" style="width:400px;height:300px;">
-			<div id="foodText">Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor.....</div>
-			<button class="btn" id="backButton">back to Select Dish</button>
-		</div>
-		<div id="ingredients" class="col-md-5">
-			<h4>Ingridients for 4 people</h4>
-			<hr class="blackLine">
-			<hr class="blackLine">
-			<p>SEK 50.00</p>
-			<button class="btn" id="confirmDish">Confirm Dish</button>
+		<div id="dishDetails">
+			<div id="selectedDishDetails" class="col-md-5">
+			</div>
+			<div class="col-md-5">
+				<h4>Ingridients for 4 people</h4>
+				<hr class="blackLine">
+				<div id="ingredients">
+				</div>
+				<hr class="blackLine">
+				<p>SEK</p>
+				<p id="totalCostIngr"></p>
+				<button class="btn" id="confirmDish">Confirm Dish</button>
+			</div>
 		</div>
 		<div id="preparation" class="col-md-10 col-md-offset-2">
+			<button class="btn" id="backButton">back to Select Dish</button>
 			<h2>Preparation</h2>
 		</div>
 	</div>

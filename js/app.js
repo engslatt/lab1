@@ -8,6 +8,8 @@ $(function() {
 
 	var picBox = new PicBox($("#picBox"), model);
 	
-	var ingredients = new Ingredients($("#ingredients"), model);
+	var dishDetails = new DishDetails($("#dishDetails"), model);
+	
+	//var viewFour = new ViewFour($("#viewFour"), model);
 
 });

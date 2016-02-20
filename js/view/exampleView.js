@@ -31,44 +31,64 @@ var ExampleView = function (container, model) {
 	
 	//this.foodInfo.html(model.removeDishFromMenu(1));    NOT WORKING?
 	
-	//console.log(model.getSelectedDish("starter"));
-	//console.log(model.getFullMenu());
-	//console.log(model.getAllIngredients());
-	//console.log(model.getTotalMenuPrice());
-	//console.log(model.addDishToMenu(1));
-	//console.log(model.getAllDishes("starter"));
-	//console.log(model.getDish(2));
 	
 }
 
-
-
 var PicBox = function(container, model){
-		this.foodDetail = container.find('#foodDetail');
+	this.foodDrop = container.find('#foodDrop');
+	this.foodDetail = container.find('#foodDetail');
+	
 
-		var foodList = model.getAllDishes('starter');
-		var foodDetailTxt ="";
+	var selectedFoodDrop = "all";
+	var foodDropListTxt = "";
+	var foodList = model.getAllDishes("dessert");
+	var foodDetailTxt ="";
 
-		for (var i=0 ;  i < foodList.length ; i++ ){
+	//drop down list
+	foodDropListTxt = "<option value ='starter'>Starters</option>"+
+				"<option ='main dish'>Main</option>"+
+				"<option ='dessert'>Dessert</option>"+
+				"<option value ='all'>All</option>";
+				
+	console.log(foodDropListTxt);
+				
+	this.foodDrop.html(foodDropListTxt);
 
-			foodDetailTxt +="<div class=\"col-md-3\">"+
+	//food box
+	for (var i=0 ;  i < foodList.length ; i++ ){
+
+		foodDetailTxt +="<div class=\"col-md-3\">"+
 								"<div class=\"thumbnail\">"+
 									"<img src=\"images/"+foodList[i].image+"\" id=\""+foodList[i].name +"\" class=\"foodPics\" style=\"width:128px;height:128px;\">"+
 									"<div class=\"caption\">"+
 									"<p><a href=\"#\" class=\"btn btn-primary\" role=\"button\">"+foodList[i].name+"</a></p>"+
 									"<p>"+foodList[i].description+"</p>"+
-							"</div></div></div>"
+							"</div></div></div>";
 
 		}
-		this.foodDetail.html(foodDetailTxt);
-
+		
+	this.foodDetail.html(foodDetailTxt);
 	}
 	
-var Ingredients = function(container, model){
-	this.ingredientBox = container.find("#ingredients");
+var DishDetails = function(container, model){
 	
-	var ingredientList = model.getAllIngredients();
-	var ingredientTxt = "";
+	this.pickedFoodDiv = container.find("#selectedDishDetails");
+	
+	var pickedFood = model.getDish(2);
+	var foodDescription = "";
+		foodDescription += "<h2>"+pickedFood.name+"</h2>"+
+						"<img src=\"images/"+pickedFood.image+"\" id=\""+pickedFood.name+"\" class=\"foodPics\" style=\"width:128px;height:128px;\">"+
+						"<div>"+ pickedFood.description+"</div>"
+					
+
+		
+	this.pickedFoodDiv.html(foodDescription);
+	
+	this.ingredientBox = container.find("#ingredients");
+	this.totalPriceIngr = container.find("#totalCostIngr");
+	
+	var ingredientList = model.getDishIngredients(2);
+	var ingredientTxt = ""
 	
 	for (var i=0 ;  i < ingredientList.length ; i++ ){
 	
@@ -78,9 +98,10 @@ var Ingredients = function(container, model){
 					"<td>SEK</td>"+
 					"<td>"+ingredientList[i].price+"</td>"+
 					"</tr>"+"</tbody>"+ "</table>"
-					
 	}
 	
+	this.totalPriceIngr.html(model.getFoodPrice(2));
 	this.ingredientBox.html(ingredientTxt);
 }
+
 	

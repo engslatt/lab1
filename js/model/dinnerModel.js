@@ -39,6 +39,11 @@ var DinnerModel = function() {
 		//TODO Lab 2
 	}
 
+	this.getDishIngredients = function(id){
+		var dish = this.getDish(id);
+		return dish.ingredients;
+	}
+	
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		for (var i = 0; i < selectedMenu.length ; i++){
@@ -50,7 +55,7 @@ var DinnerModel = function() {
 
 	this.getFoodPrice = function(id){
 
-		var allIngredients = this.getAllIngredients();
+		var allIngredients = this.getDishIngredients(id);
 		var totalPrice = 0;
 
 		for (var i = 0 ; i < allIngredients.length; i++){
@@ -128,9 +133,7 @@ var DinnerModel = function() {
 	this.getDish = function (id) {
 	  for(var i=0 ; i < dishes.length ; i++){
 			if(dishes[i].id == id) {
-				return dishes[i];
-				//console.log(dishes[i]);
-				
+				return dishes[i];				
 			}
 		}
 	}
