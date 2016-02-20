@@ -1,7 +1,62 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 	
-	var selectedMenu = [];
+	//var selectedMenu = [];
+	var selectedMenu = [{ // FOR TESTING
+		'id':1,
+		'name':'French toast',
+		'type':'starter',
+		'image':'toast.jpg',
+		'description':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
+		'ingredients':[{ 
+			'name':'eggs',
+			'quantity':0.5,
+			'unit':'',
+			'price':10
+			},{
+			'name':'milk',
+			'quantity':30,
+			'unit':'ml',
+			'price':6
+			},{
+			'name':'brown sugar',
+			'quantity':7,
+			'unit':'g',
+			'price':1
+			},{
+			'name':'ground nutmeg',
+			'quantity':0.5,
+			'unit':'g',
+			'price':12
+			},{
+			'name':'white bread',
+			'quantity':2,
+			'unit':'slices',
+			'price':2
+			}]
+		},{
+		'id':2,
+		'name':'Sourdough Starter',
+		'type':'starter',
+		'image':'sourdough.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'active dry yeast',
+			'quantity':0.5,
+			'unit':'g',
+			'price':4
+			},{
+			'name':'warm water',
+			'quantity':30,
+			'unit':'ml',
+			'price':0
+			},{
+			'name':'all-purpose flour',
+			'quantity':15,
+			'unit':'g',
+			'price':2
+			}]
+		}];
 	var guest = 3;
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
@@ -33,9 +88,13 @@ var DinnerModel = function() {
 	
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		for (var i = 0; i < selectedMenu.length ; i++){
-			return selectedMenu[i].name;
-		}
+		// for (var i = 0; i < selectedMenu.length ; i++){
+		// 	return selectedMenu[i].name;
+		// }
+
+		//OR ONLY THIS ?!
+		return selectedMenu;
+
 		//TODO Lab 2
 	}
 
@@ -43,40 +102,60 @@ var DinnerModel = function() {
 		var dish = this.getDish(id);
 		return dish.ingredients;
 	}
-	
-	//Returns all ingredients for all the dishes on the menu.
-	this.getAllIngredients = function() {
-		for (var i = 0; i < selectedMenu.length ; i++){
-			return selectedMenu[i].ingredients;
-		}
-	}
-		
-		//TODO Lab 2
+
+	//TODO Lab 2
 
 	this.getFoodPrice = function(id){
 
 		var allIngredients = this.getDishIngredients(id);
-		var totalPrice = 0;
+		var foodPrice = 0;
 
 		for (var i = 0 ; i < allIngredients.length; i++){
 			var a = allIngredients[i].price;
-			totalPrice += a;
+			foodPrice += a;
+		}
+		return foodPrice;
 	}
-		return totalPrice;
-}
 
+	
+	//Returns all ingredients for all the dishes on the menu.
+	this.getAllIngredients = function() {
+		console.log("selectedMenu.length = "+selectedMenu.length);
+
+		var allIngredients =[];
+
+		//fullMenu[i]["ingredients"].length
+		for (var i = 0; i < selectedMenu.length ; i++){
+			//console.log("selectedMenu["+i+"].ingredients = "+selectedMenu[i]["ingredients"]);
+			//return selectedMenu[i].ingredients;
+			allIngredients.push(selectedMenu[i]["ingredients"]);
+			console.log("selectedMenu["+i+"].ingredients = "+selectedMenu[i]["ingredients"]);
+			//console.log("allIngredients = "+allIngredients);
+		}
+		return allIngredients;
+	}
+		
+		
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 2
-		var allIngredients = this.getAllIngredients();
+		//var allIng = this.getAllIngredients();
+		//console.log("allIng = "+allIng);
+		//console.log("allIng.length = "+allIng.length);
 		var totalPrice = 0;
-		
+		/*
 		for (var i = 0; i < allIngredients.length ; i++){
 			var a = allIngredients[i].price;
+			console.log("allIngredients["+i+"].price = "+a);
 			totalPrice += a;
+		}*/
+
+		for (var i=0; i<selectedMenu.length; i++){
+			totalPrice += this.getFoodPrice(selectedMenu[i].id);
 		}
 		
 		var grandPrice = totalPrice * this.getNumberOfGuests();
+		//console.log("grandPrice = "+grandPrice+" = totalPrice "+totalPrice+" * numberofGuests "+this.getNumberOfGuests());
 		return grandPrice;
 
 	}
@@ -85,11 +164,32 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		for (var i=0 ;  i < dishes.length ; i++ ){
-			if(dishes[i].id == id)
+			if(dishes[i].id == id){
+				
+				//console.log("selectedMenu.length = "+selectedMenu.length);
 
-			//dishes[i].id != selectedMenu[i].id){} CHECK IF THE DISH ALREADY EXIST IN ARRAY!
-				selectedMenu.push(dishes[i]);
-				return selectedMenu[i];
+				if(selectedMenu.length != 0){ //check if selectedMenu is empty or not
+					for (var j=0; j<selectedMenu.length ; j++){
+					 	if(selectedMenu[j].id == dishes[i].id){	//check if the new dish is duplicate
+					 		selectedMenu.splice(j, 1); //if so, remove that dish
+					 	}
+					 	//console.log("dishes[i].name = "+dishes[i].name);
+					 	selectedMenu.push(dishes[i]); //add the new dish
+
+					 	console.log("selectedMenu.length = "+selectedMenu.length);
+					 	return selectedMenu;
+					}
+				} else{
+					//console.log("dishes[i].name = "+dishes[i].name);
+					selectedMenu.push(dishes[i]); //add the new dish 
+					console.log("selectedMenu.length = "+selectedMenu.length);
+					return selectedMenu;
+
+				}
+
+				//selectedMenu.push(dishes[i]);
+				//return selectedMenu;
+			}
 		}
 		//TODO Lab 2
 	}
