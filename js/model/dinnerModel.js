@@ -57,7 +57,7 @@ var DinnerModel = function() {
 			'price':2
 			}]
 		}];
-	var guest = 3;
+	var guest = 0;
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
@@ -67,6 +67,7 @@ var DinnerModel = function() {
 		//TODO Lab 2
 		guest += num;
 		return guest;
+		this.notifyObservers();
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -80,6 +81,7 @@ var DinnerModel = function() {
 			if(dishes[i].type == type) {
 				selectedMenu.push(dishes[i]);
 				return dishes[i];
+				this.notifyObservers();
 			}
 		}
 	}
@@ -178,12 +180,14 @@ var DinnerModel = function() {
 
 					 	console.log("selectedMenu.length = "+selectedMenu.length);
 					 	return selectedMenu;
+						this.notifyObservers();
 					}
 				} else{
 					//console.log("dishes[i].name = "+dishes[i].name);
 					selectedMenu.push(dishes[i]); //add the new dish 
 					console.log("selectedMenu.length = "+selectedMenu.length);
 					return selectedMenu;
+					this.notifyObservers();
 
 				}
 
@@ -199,8 +203,10 @@ var DinnerModel = function() {
 		for (var i=0 ; i < selectedMenu.length ; i++){
 			if (selectedMenu[i].id == id){
 				selectedMenu.splice(i, 1);
+				this.notifyObservers();
 			}else{
 				return false;
+				this.notifyObservers();
 			}
 		}
 		
@@ -236,6 +242,21 @@ var DinnerModel = function() {
 				return dishes[i];				
 			}
 		}
+	}
+	
+	//////////Observable implementation
+	
+	this.observers = [];
+	
+	this.addObserver = function(observer) {
+		this.observers.push(observer);
+	}
+	
+	this.notifyObservers = function(arg) {
+		for(var i=0; i<this.observers.length; i++) 
+		{
+			this.observers[i].update(arg);
+		}	
 	}
 
 
