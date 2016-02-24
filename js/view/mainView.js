@@ -22,7 +22,7 @@ var mainView = function(container, model){
 	this.foodDrop = container.find('#foodDrop');
 	this.foodDetail = container.find('#foodDetail');
 	
-	var addText = function(){
+	this.addText = function(){
 	
 		var selectedFoodDrop = "all";
 		var foodDropListTxt = "";
@@ -61,5 +61,5 @@ var mainView = function(container, model){
 	
 	model.addObserver(this);
 	
-	addText();
+	this.addText();
 }

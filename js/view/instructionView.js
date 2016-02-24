@@ -63,8 +63,6 @@ var instructionView = function(container, model){
 		this.prepView.html(prepViewTxt);
 	}
 	
-	addInstructionText
-	
 	this.update = function(arg) {
 		addInstructionText();
 	}

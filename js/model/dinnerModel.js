@@ -57,6 +57,7 @@ var DinnerModel = function() {
 			'price':2
 			}]
 		}];
+		
 	var guest = 0;
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
@@ -66,8 +67,11 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
 		guest += num;
+		if (guest < 0){
+			guest = 0;
+		}
+		this.notifyObservers("newGuestNumber");
 		return guest;
-		this.notifyObservers();
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -80,8 +84,8 @@ var DinnerModel = function() {
 	  for(var i = 0; i < dishes.length ; i++){
 			if(dishes[i].type == type) {
 				selectedMenu.push(dishes[i]);
-				return dishes[i];
 				this.notifyObservers();
+				return dishes[i];
 			}
 		}
 	}
@@ -179,16 +183,16 @@ var DinnerModel = function() {
 					 	selectedMenu.push(dishes[i]); //add the new dish
 
 					 	console.log("selectedMenu.length = "+selectedMenu.length);
-					 	return selectedMenu;
-						this.notifyObservers();
+					 	this.notifyObservers("newMenu");
+						return selectedMenu;
 					}
 				} else{
 					//console.log("dishes[i].name = "+dishes[i].name);
 					selectedMenu.push(dishes[i]); //add the new dish 
 					console.log("selectedMenu.length = "+selectedMenu.length);
+					this.notifyObservers("newMenu");
 					return selectedMenu;
-					this.notifyObservers();
-
+				
 				}
 
 				//selectedMenu.push(dishes[i]);
@@ -205,8 +209,9 @@ var DinnerModel = function() {
 				selectedMenu.splice(i, 1);
 				this.notifyObservers();
 			}else{
-				return false;
 				this.notifyObservers();
+				return false;
+	
 			}
 		}
 		
@@ -231,6 +236,7 @@ var DinnerModel = function() {
 				found = true;
 			}
 		}
+		this.notifyObservers("dishdish");
 	  	return dish.type == type && found;
 	  });	
 	}
