@@ -22,22 +22,19 @@ var mainView = function(container, model){
 	this.foodDrop = container.find('#foodDrop');
 	this.foodDetail = container.find('#foodDetail');
 	
-	this.addText = function(){
-	
-		var selectedFoodDrop = "all";
-		var foodDropListTxt = "";
-		var foodList = model.getAllDishes("dessert");
+	var foodDropListTxt = "";
+		
+	//drop down list
+	foodDropListTxt = "<option value ='starter'>Starters</option>"+
+				"<option value ='main dish'>Main</option>"+
+				"<option value ='dessert'>Dessert</option>";
+							
+	this.foodDrop.html(foodDropListTxt);
+		
+	this.updateType = function(type){
+		
+		var foodList = model.getAllDishes(type);
 		var foodDetailTxt ="";
-
-		//drop down list
-		foodDropListTxt = "<option value ='starter'>Starters</option>"+
-					"<option ='main dish'>Main</option>"+
-					"<option ='dessert'>Dessert</option>"+
-					"<option value ='all'>All</option>";
-					
-					
-		this.foodDrop.html(foodDropListTxt);
-
 		//food box
 		for (var i=0 ;  i < foodList.length ; i++ ){
 
@@ -55,11 +52,13 @@ var mainView = function(container, model){
 
 	}
 	
-	this.update = function(arg) {
-		addText();
+	this.updateType("starter");
+	
+	this.update = function(type) {
+		this.updateType(type);
 	}
 	
 	model.addObserver(this);
 	
-	this.addText();
+
 }

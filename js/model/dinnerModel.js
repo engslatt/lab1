@@ -236,7 +236,6 @@ var DinnerModel = function() {
 				found = true;
 			}
 		}
-		this.notifyObservers("dishdish");
 	  	return dish.type == type && found;
 	  });	
 	}
